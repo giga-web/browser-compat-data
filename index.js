@@ -52,8 +52,8 @@ function browserCompatData ({ property, prev, browserName, version }) {
         const added = browser[i]['version_added'];
         const removed = browser[i]['version_removed'];
 
-        if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
-        // if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
+        // if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
+        if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
           console.log(prev + ' -> ' + browserskey, browser[i]);
         } 
       }
@@ -62,8 +62,8 @@ function browserCompatData ({ property, prev, browserName, version }) {
       const added = browser['version_added'];
       const removed = browser['version_removed'];
 
-      if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
-      // if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
+      // if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
+      if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
         console.log(prev + ' -> ' + browserskey, browser);
       }
 
@@ -80,7 +80,8 @@ function loop (properties, prev) {
     if (propertieskey === '__compat') {
       browserCompatData({ property, prev, browserName: 'ie', version: '9' });
 
-    } else if (childrenProperties(property)) {
+    // } else if (childrenProperties(property)) {
+    } else {
       // debugger;
       loop(property, prev === undefined ? propertieskey : (prev + ' -> ' + propertieskey));
 
@@ -89,7 +90,23 @@ function loop (properties, prev) {
 }
 
 // 执行递归
-loop(bcd.css);
+// loop(bcd.css);
+loop(bcd.api);
 // loop(bcd.html);
+
+/*
+api
+-- browsers
+css
+html
+http
+javascript
+mathml
+svg
+webdriver
+webextensions
+xpath
+xslt
+*/
 
 debugger;
