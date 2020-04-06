@@ -78,7 +78,7 @@ function loop (properties, prev) {
     const property = properties[propertieskey];
 
     if (propertieskey === '__compat') {
-      browserCompatData({ property, prev, browserName: 'ie', version: '9' });
+      browserCompatData({ property, prev, browserName: 'chrome', version: '80' });
 
     // } else if (childrenProperties(property)) {
     } else {
@@ -91,7 +91,7 @@ function loop (properties, prev) {
 
 // 执行递归
 // loop(bcd.css);
-loop(bcd.javascript);
+loop(bcd.html);
 // loop(bcd.html);
 
 /*
