@@ -54,7 +54,7 @@ function browserCompatData ({ property, prev, browserName, version }) {
 
         // if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
         if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
-          console.log(prev + ' -> ' + browserskey, browser[i]);
+          console.log(prev + ' -> ' + browserskey, browser[i], property.mdn_url);
         } 
       }
 
@@ -64,7 +64,7 @@ function browserCompatData ({ property, prev, browserName, version }) {
 
       // if (added !== true && added !== null && added !== false && Number(added) <= Number(version)) {
       if (added !== null && added !== false && (added === true || Number(added) <= Number(version))) {
-        console.log(prev + ' -> ' + browserskey, browser);
+        console.log(prev + ' -> ' + browserskey, browser, property.mdn_url);
       }
 
     }
@@ -91,7 +91,7 @@ function loop (properties, prev) {
 
 // 执行递归
 // loop(bcd.css);
-loop(bcd.api);
+loop(bcd.javascript);
 // loop(bcd.html);
 
 /*
